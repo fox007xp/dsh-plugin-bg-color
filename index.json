@@ -28,6 +28,15 @@
       },
       "versions": [
         {
+          "version": "1.1.2",
+          "publishTimestamp": 1794317818,
+          "source": {
+            "type": "git",
+            "url": "https://github.com/fox007xp/dsh-plugin-bg-color",
+            "commit": "45a12f62a0e6fba4f11a0e397b4e4696fe53aa9a"
+          }
+        },
+        {
           "version": "1.1.1",
           "publishTimestamp": 1794314698,
           "source": {
