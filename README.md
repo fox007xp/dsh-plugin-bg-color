@@ -74,6 +74,8 @@ node tooling/check.mjs
 
 检查内容：三个 JS 文件的语法、`package.json` 与 locale JSON 可解析、`index.json` 通过**官方** `parseMarketIndex`（不是自己模拟的规则）、索引里最新版本号与 `package.json` 一致、每个 git 源 pin 的 commit 在本仓库确实存在、`cordis.patch.yml` 确实插入了本包。
 
+tag 触发时只核对「tag 名 == `v<版本号>`」：release tag 指向的是装包的那个提交，索引由 main 上的后续提交更新，所以版本一致性检查只在分支和 PR 上跑。
+
 ### 已知限制
 
 - 只暴露上面 5 个背景 token；品牌色、边框色、文字色仍归主题管。
@@ -151,6 +153,8 @@ node tooling/check.mjs
 ```
 
 It checks the three JavaScript files parse, `package.json` and the locale JSON parse, `index.json` passes the **official** `parseMarketIndex` (not a local imitation of its rules), the index's latest version matches `package.json`, every git source pins a commit that exists in this repository, and `cordis.patch.yml` actually inserts this package.
+
+On a tag it only checks that the tag is `v<version>`: a release tag marks the commit that carries the package, while the index is updated by a later commit on main, so the version cross-check runs on branches and pull requests only.
 
 ### Limitations
 
