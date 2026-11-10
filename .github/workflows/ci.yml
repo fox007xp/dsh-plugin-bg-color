@@ -1,0 +1,38 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # Full history: the index pins commits, and the check verifies each
+          # pinned commit exists in this repository.
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Syntax check
+        run: |
+          node --check index.js
+          node --check client.js
+          node --check tooling/check.mjs
+
+      - name: Install the official market index validator
+        run: npm install --no-save --no-package-lock --ignore-scripts @deepseek-ai/dsh-plugin-market-index@0.2.2-rc.1
+
+      - name: Validate package and market index
+        run: node tooling/check.mjs
+        env:
+          MARKET_INDEX_URL: https://raw.githubusercontent.com/fox007xp/dsh-plugin-bg-color/main/index.json

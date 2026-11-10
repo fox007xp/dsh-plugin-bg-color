@@ -60,6 +60,19 @@ plugin_manager install_bundle, target: <本目录路径>
 | `locale/en.json`、`locale/zh.json` | 插件管理器里显示的中英标题与描述。 |
 | `index.json` | 插件市场索引（format 1，git 源）。 |
 | `icon.svg` | 原创图标。 |
+| `.github/workflows/ci.yml` | CI：语法检查、官方校验器验索引、核对 pin 的 commit。 |
+| `tooling/check.mjs` | 本地跑同一套检查。 |
+
+### 本地校验
+
+push 到 main、打 tag 或提 PR 时，CI 会自动跑下面这套检查。本地复现：
+
+```sh
+npm install --no-save --no-package-lock --ignore-scripts @deepseek-ai/dsh-plugin-market-index@0.2.2-rc.1
+node tooling/check.mjs
+```
+
+检查内容：三个 JS 文件的语法、`package.json` 与 locale JSON 可解析、`index.json` 通过**官方** `parseMarketIndex`（不是自己模拟的规则）、索引里最新版本号与 `package.json` 一致、每个 git 源 pin 的 commit 在本仓库确实存在、`cordis.patch.yml` 确实插入了本包。
 
 ### 已知限制
 
@@ -125,6 +138,19 @@ plugin_manager install_bundle, target: <path to this directory>
 | `locale/en.json`, `locale/zh.json` | Display title and description for the plugin manager. |
 | `index.json` | Plugin market index (format 1, git source). |
 | `icon.svg` | Original artwork. |
+| `.github/workflows/ci.yml` | CI: syntax, the official validator, pinned-commit check. |
+| `tooling/check.mjs` | Runs the same checks locally. |
+
+### Local checks
+
+CI runs these on every push to main, tag, and pull request. To reproduce locally:
+
+```sh
+npm install --no-save --no-package-lock --ignore-scripts @deepseek-ai/dsh-plugin-market-index@0.2.2-rc.1
+node tooling/check.mjs
+```
+
+It checks the three JavaScript files parse, `package.json` and the locale JSON parse, `index.json` passes the **official** `parseMarketIndex` (not a local imitation of its rules), the index's latest version matches `package.json`, every git source pins a commit that exists in this repository, and `cordis.patch.yml` actually inserts this package.
 
 ### Limitations
 
