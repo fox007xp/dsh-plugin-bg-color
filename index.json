@@ -1,0 +1,42 @@
+{
+  "format": 1,
+  "title": { "en": "fred.li's DSH plugins", "zh": "fred.li 的 DSH 插件" },
+  "description": {
+    "en": "Bundles published from this account for the DeepSeek Harness.",
+    "zh": "本账号发布的 DeepSeek Harness 插件。"
+  },
+  "metadata": {
+    "categories": { "appearance": { "title": { "en": "Appearance", "zh": "外观" } } },
+    "sortKeys": { "added": { "title": { "en": "Added", "zh": "添加时间" }, "order": "desc" } }
+  },
+  "plugins": [
+    {
+      "name": "dsh-plugin-bg-color",
+      "title": { "en": "Background colors", "zh": "背景色调节" },
+      "description": {
+        "en": "Adjust the background color of the DSH window, surfaces, overlays, and sidebar from a floating panel, with curated light and dark combinations and immediate preview.",
+        "zh": "实时调整整窗、面板、浮层和侧边栏的背景色，内置浅色/深色配色组合。"
+      },
+      "icon": "icon.svg",
+      "author": "fred.li",
+      "homepage": "https://github.com/fox007xp/dsh-plugin-bg-color",
+      "repository": { "url": "https://github.com/fox007xp/dsh-plugin-bg-color" },
+      "metadata": {
+        "category": "appearance",
+        "keywords": ["theme", "background", "appearance", "color"],
+        "sortKeys": { "added": 1794314452 }
+      },
+      "versions": [
+        {
+          "version": "1.1.0",
+          "publishTimestamp": 1794314452,
+          "source": {
+            "type": "git",
+            "url": "https://github.com/fox007xp/dsh-plugin-bg-color",
+            "commit": "643114b74dcd0f15646c5945d84f28e240677666"
+          }
+        }
+      ]
+    }
+  ]
+}
