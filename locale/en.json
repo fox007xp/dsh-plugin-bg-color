@@ -1,6 +1,6 @@
 {
   "meta": {
     "title": "Background colors",
-    "description": "Changes the background color of the window, surfaces, overlays, and sidebar, with the preview applied as soon as a color changes."
+    "description": "DSH background-color plugin: live-tune window, surface, overlay and sidebar colors, with built-in light and dark presets."
   }
 }
