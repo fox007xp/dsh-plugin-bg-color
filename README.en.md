@@ -31,13 +31,24 @@ The token names are DSH internals. A rename in a future release degrades appeara
 
 ## Install
 
-From the plugin market (add this source under Plugins → Custom plugin indexes, then open Discover):
+### From the plugin market
+
+Prerequisite: the market is off by default in DSH. Enable the official experimental bundle first, or the Plugins page never grows a Discover tab.
+
+1. Plugins page → **Experimental plugins** → enable **Custom plugin indexes**
+2. Open **Discover** and add this address as an index source:
 
 ```
 https://raw.githubusercontent.com/fox007xp/dsh-plugin-bg-color/main/index.json
 ```
 
-Or install the local directory:
+3. Once the index is fetched, "Background colors" appears in the list — press Install
+
+If that switch does not exist, the market is not enabled yet — step 2 has nothing to attach to, so do step 1 first.
+
+### From a local directory
+
+Useful when you edit the code and want to see the result immediately:
 
 ```
 plugin_manager install_bundle, target: <path to this directory>

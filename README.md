@@ -31,13 +31,24 @@
 
 ## 安装
 
-从插件市场装（Plugins → Custom plugin indexes 里加下面这个源，然后进 Discover）：
+### 从插件市场装
+
+前提：DSH 的插件市场能力默认关闭，要先启用官方实验 bundle，否则 Plugins 页里不会出现 Discover 标签。
+
+1. Plugins 页 → **Experimental plugins** → 打开 **Custom plugin indexes**
+2. 打开 **Discover**，把下面这个地址加为索引源：
 
 ```
 https://raw.githubusercontent.com/fox007xp/dsh-plugin-bg-color/main/index.json
 ```
 
-或者直接装本地目录：
+3. 索引抓取成功后，列表里会出现「背景色调节」→ Install
+
+没有那个开关，说明市场能力还没启用，第二步也无从下手，先把第一步做完。
+
+### 直接装本地目录
+
+适合自己改代码、想立刻看到效果的场景：
 
 ```
 plugin_manager install_bundle, target: <本目录路径>
